@@ -2,15 +2,19 @@ Summary:	Jet's Neural library - for making neural net apps
 Summary(pl):	Jet's Neural library - tworzenie aplikacji neuronowych
 Name:		jneural
 Version:	1.05
-Release:	3
+Release:	4
 License:	GPL v2
 Group:		Libraries
 Source0:	http://www.voltar.org/jneural/%{name}-%{version}.tar.gz
 # Source0-md5:	79afdc55601a7e5a22b303b566c37525
 Patch0:		%{name}-make.patch
+Patch1:		%{name}-yacc.patch
+Patch2:		%{name}-c++.patch
+BuildRequires:	bison
 BuildRequires:	latex2html
+BuildRequires:	libstdc++-devel
 BuildRequires:	ncurses-devel
-BuildRequires:	tetex
+BuildRequires:	tetex-latex-bibtex
 BuildRequires:	texinfo-texi2dvi
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -32,7 +36,7 @@ te¿ nie jest, ale przynajmniej autor j± lubi ;)
 Summary:	Example jneural applications
 Summary(pl):	Przyk³adowe programy, wykorzystuj±ce jneural
 Group:		Applications
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description apps
 Example jneural applications.
@@ -44,7 +48,7 @@ Przyk³adowe programy, wykorzystuj±ce jneural.
 Summary:	jneural header files
 Summary(pl):	Pliki nag³ówkowe jneural
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 jneural header files.
@@ -56,7 +60,7 @@ Pliki nag³ówkowe biblioteki jneural.
 Summary:	jneural static library
 Summary(pl):	Statyczna biblioteka jneural
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static version of jneural library.
@@ -67,10 +71,16 @@ Statyczna wersja biblioteki jneural.
 %prep
 %setup -q -n %{name}
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
-./configure --prefix=$RPM_BUILD_ROOT%{_prefix}
-%{__make}
+%{__autoconf}
+%configure
+%{__make} \
+	CC="%{__cxx}" \
+	DFLAGS="%{rpmcflags}" \
+	YACC="bison -y"
 
 cd docs
 texi2dvi -I %{_datadir}/latex2html/texinputs jneural_doc.tex
@@ -81,9 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 # broken as much as possible
 #%%{__make} install
 
-install -d $RPM_BUILD_ROOT%{_bindir}
-install -d $RPM_BUILD_ROOT%{_libdir}
-install -d $RPM_BUILD_ROOT%{_includedir}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_includedir}}
 
 #install apps/grid_w $RPM_BUILD_ROOT%{_bindir}/jn_grid_w
 #install apps/sin    $RPM_BUILD_ROOT%{_bindir}/jn_sin
@@ -94,12 +102,12 @@ ln -s libjneural.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libjneural.so.1
 ln -s libjneural.so.1          $RPM_BUILD_ROOT%{_libdir}/libjneural.so
 
 for i in arch nets utils; do
-    install -d $RPM_BUILD_ROOT%{_includedir}/$i
-    cp -v include/$i/*.h $RPM_BUILD_ROOT%{_includedir}/$i
+	install -d $RPM_BUILD_ROOT%{_includedir}/$i
+	install include/$i/*.h $RPM_BUILD_ROOT%{_includedir}/$i
 done
 
 for i in `find apps/ -perm -700 -type f`; do
-   install $i $RPM_BUILD_ROOT%{_bindir}
+	install $i $RPM_BUILD_ROOT%{_bindir}
 done
 
 %clean
@@ -110,18 +118,18 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/*.so.*
+%doc README PROGRESSLOG
+%attr(755,root,root) %{_libdir}/*.so.*.*
 
 %files apps
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/*
 %doc apps/matricies.*
+%attr(755,root,root) %{_bindir}/*
 
 %files devel
 %defattr(644,root,root,755)
-%doc README PROGRESSLOG docs/jneural_doc.dvi
+%doc docs/jneural_doc.dvi
 %attr(755,root,root) %{_libdir}/*.so
-#%%{_libdir}/*.la
 %{_includedir}/arch
 %{_includedir}/nets
 %{_includedir}/utils
