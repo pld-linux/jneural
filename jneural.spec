@@ -1,13 +1,14 @@
-Summary:	Jet's Neural library -- for making neural net apps
-Summary(pl):	Jet's Neural library -- tworzenie aplikacji neuronowych
+Summary:	Jet's Neural library - for making neural net apps
+Summary(pl):	Jet's Neural library - tworzenie aplikacji neuronowych
 Name:		jneural    
 Version:	1.05
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Libraries
 Source0:	http://www.voltar.org/jneural/jneural-%{version}.tar.gz
 Patch0:		jneural-make.patch
 BuildRequires:	latex2html tetex
+BuildRequires:	texinfo-texi2dvi
 BuildRequires:	ncurses-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
