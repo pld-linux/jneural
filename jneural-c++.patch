@@ -1,0 +1,66 @@
+--- jneural/apps/xor.cpp.orig	2002-06-20 14:41:19.000000000 +0200
++++ jneural/apps/xor.cpp	2004-03-31 19:31:52.144416552 +0200
+@@ -19,7 +19,7 @@
+ #define max_patterns 4
+ #endif
+ 
+-void main() {
++int main() {
+     matrix_reader *r = new matrix_reader("matricies.xor");
+     real error    =  0.0;
+     real minError = 10.0;
+--- jneural/apps/sin.cpp.orig	2002-06-20 14:41:19.000000000 +0200
++++ jneural/apps/sin.cpp	2004-03-31 20:13:47.456031064 +0200
+@@ -8,7 +8,7 @@
+ #define max_patterns 5
+ #define epochs_per   10
+ 
+-void main() {
++int main() {
+     real error    =  0.0;
+     real minError = 10.0;
+     real Epsilon  =  0.00009;
+--- jneural/apps/letters.cpp.orig	2002-02-08 18:49:13.000000000 +0100
++++ jneural/apps/letters.cpp	2004-03-31 20:14:34.077943456 +0200
+@@ -25,7 +25,7 @@
+     }
+ }
+ 
+-void main() {
++int main() {
+     int o, counter;
+     int displayed_something;
+ 
+--- jneural/apps/four.cpp.orig	2002-02-08 18:49:13.000000000 +0100
++++ jneural/apps/four.cpp	2004-03-31 20:14:44.987284984 +0200
+@@ -5,7 +5,7 @@
+ 
+ #define radius 0
+ 
+-void main() {
++int main() {
+     int o;
+     real *v;
+ 
+--- jneural/apps/walker.cpp.orig	2002-02-08 18:49:13.000000000 +0100
++++ jneural/apps/walker.cpp	2004-03-31 20:14:55.473690808 +0200
+@@ -87,7 +87,7 @@
+     printf("\n");
+ }
+ 
+-void main() {
++int main() {
+     sarsa *walker = new sarsa(alpha, lambda, gamma, states, 2, hidden_layers);
+     disp          = new walker_display(f_state_c_h, states);
+     char *msg     = new char[80];
+--- jneural/apps/grid_w.cpp.orig	2002-02-08 18:49:13.000000000 +0100
++++ jneural/apps/grid_w.cpp	2004-03-31 20:15:06.434024584 +0200
+@@ -116,7 +116,7 @@
+     return hitwall;
+ }
+ 
+-void main() {
++int main() {
+     /* INIT */
+     sarsa *grid_w = new sarsa(alpha, lambda, gamma, 
+                               grid_xsize+grid_ysize, 4, hidden_layers);

@@ -1,0 +1,11 @@
+--- jneural/utils/matrix.y.orig	2002-02-08 18:49:13.000000000 +0100
++++ jneural/utils/matrix.y	2004-03-31 19:27:33.351759016 +0200
+@@ -40,7 +40,7 @@
+ bit:       ON       { me->add_element_to_current_matrix(1.0); } 
+    |       OFF      { me->add_element_to_current_matrix(0.0); } ;
+ 
+-number:    INT      { me->add_element_to_current_matrix((real)$1); } ;
++number:    INT      { me->add_element_to_current_matrix((real)$1); }
+       |    REAL     { me->add_element_to_current_matrix(      $1); } ;
+ 
+ vs:    VectorStart  { me->start_new_row_in_current_matrix();  } ;
