@@ -1,0 +1,58 @@
+diff -ur jneural/apps/Makefile.in ../BUILD/jneural/apps/Makefile.in
+--- jneural/apps/Makefile.in	Wed Jun 19 04:25:52 2002
++++ ../BUILD/jneural/apps/Makefile.in	Mon Aug  5 12:15:52 2002
+@@ -1,7 +1,7 @@
+ SHELL=bash
+ CC=gcc
+ make=make ${MFLAGS}
+-CFLAGS=-I${IDIR} ${DFLAGS} ${OFLAGS}
++CFLAGS=-I${IDIR} -I/usr/include/ncurses ${DFLAGS} ${OFLAGS}
+ OFLAGS= -O3 #-DUSE_STRICT_OVERFLOW_CHECKING
+ 
+ #DFLAGS= -DORIENTATION_DEBUG  # only used in kohonen type nets.
+diff -ur jneural/apps/displays/Makefile.in ../BUILD/jneural/apps/displays/Makefile.in
+--- jneural/apps/displays/Makefile.in	Fri Feb  8 18:49:13 2002
++++ ../BUILD/jneural/apps/displays/Makefile.in	Mon Aug  5 12:16:20 2002
+@@ -27,7 +27,7 @@
+ 
+ .cpp.o:
+ 	@echo Making $@
+-	@${CC} ${CFLAGS} -c $<
++	@${CC} ${CFLAGS} -c $< -I/usr/include/ncurses
+ 
+ .o:
+ 	@echo Making $@.a
+diff -ur jneural/arch/Makefile.in ../BUILD/jneural/arch/Makefile.in
+--- jneural/arch/Makefile.in	Fri Feb  8 18:49:13 2002
++++ ../BUILD/jneural/arch/Makefile.in	Mon Aug  5 12:15:52 2002
+@@ -1,6 +1,6 @@
+ CC=gcc
+ make=make ${MFLAGS}
+-CFLAGS=-I${IDIR} ${OFLAGS} ${DFLAGS} #-Wall #-Duse_instantaneous_propagation
++CFLAGS=-I${IDIR} -I/usr/include/ncurses ${OFLAGS} ${DFLAGS} #-Wall #-Duse_instantaneous_propagation
+ LFLAGS=-lm
+ MFLAGS=--no-print-directory DFLAGS="${DFLAGS}" OFLAGS="${OFLAGS}"
+ LIBDIR=../
+diff -ur jneural/nets/Makefile.in ../BUILD/jneural/nets/Makefile.in
+--- jneural/nets/Makefile.in	Fri Feb  8 18:49:13 2002
++++ ../BUILD/jneural/nets/Makefile.in	Mon Aug  5 12:15:52 2002
+@@ -1,6 +1,6 @@
+ CC=gcc
+ make=make ${MFLAGS}
+-CFLAGS=-I${IDIR} ${DFLAGS} ${OFLAGS} #-Wall
++CFLAGS=-I${IDIR} -I/usr/include/ncurses ${DFLAGS} ${OFLAGS} #-Wall
+ 
+ #DFLAGS= -DERROR_DEBUG 
+ #DFLAGS= -DWEIGHT_DEBUG 
+diff -ur jneural/utils/Makefile.in ../BUILD/jneural/utils/Makefile.in
+--- jneural/utils/Makefile.in	Fri Feb  8 18:49:13 2002
++++ ../BUILD/jneural/utils/Makefile.in	Mon Aug  5 12:15:52 2002
+@@ -2,7 +2,7 @@
+ LEX=flex
+ YACC=yacc
+ make=make ${MFLAGS}
+-CFLAGS=-I${IDIR} ${DFLAGS} ${OFLAGS} #-Wall
++CFLAGS=-I${IDIR} -I/usr/include/ncurses ${DFLAGS} ${OFLAGS} #-Wall
+ LFLAGS=-lm -lfl
+ MFLAGS=--no-print-directory DFLAGS="${DFLAGS}" OFLAGS="${OFLAGS}"
+ LIBDIR=../
