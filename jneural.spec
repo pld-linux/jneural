@@ -78,7 +78,7 @@ texi2dvi -I %{_datadir}/latex2html/texinputs jneural_doc.tex
 rm -rf $RPM_BUILD_ROOT
 
 # broken as much as possible
-#%{__make} install
+#%%{__make} install
 
 install -d $RPM_BUILD_ROOT%{_bindir}
 install -d $RPM_BUILD_ROOT%{_libdir}
@@ -120,7 +120,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README PROGRESSLOG docs/jneural_doc.dvi
 %attr(755,root,root) %{_libdir}/*.so
-#%{_libdir}/*.la
+#%%{_libdir}/*.la
 %{_includedir}/arch
 %{_includedir}/nets
 %{_includedir}/utils
