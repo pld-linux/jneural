@@ -1,27 +1,29 @@
-Summary:	Jet's Neural library -- for making neural net apps.
-Summary(pl):	Jet's Neural library -- tworzenie aplikacji neuronowych.
+Summary:	Jet's Neural library -- for making neural net apps
+Summary(pl):	Jet's Neural library -- tworzenie aplikacji neuronowych
 Name:		jneural    
 Version:	1.05
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Libraries
 Source0:	http://www.voltar.org/jneural/jneural-%{version}.tar.gz
 Patch0:		jneural-make.patch
 BuildRequires:	latex2html tetex
 BuildRequires:	ncurses-devel
-#Requires:	
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 I wrote this on account of being completely fed up with starting from
 scratch every time I wanted to write a neural app.  I had found some
-libraries that did this, but none of them were any good.  Arguably this
-isn't either...  But I like it. ;)  Probably cuz it's mine right?
+libraries that did this, but none of them were any good.  Arguably
+this isn't either... But I like it. ;)  Probably cuz it's mine right?
 
 -Jet (jettero@voltar-confed.org)
 
-# %description -l pl
-# TODO
+%description -l pl
+Ten pakiet powsta³, poniewa¿ autor mia³ ju¿ do¶æ zaczynania za ka¿dym
+razem od zera, kiedy chcia³ napisaæ aplikacjê neuronow±. Znalaz³ kilka
+bibliotek do tego celu, ale ¿adna nie by³a dobra. Prawdopodobnie ta
+te¿ nie jest, ale przynajmniej autor j± lubi ;)
 
 %package apps
 Summary:	Example jneural applications
@@ -67,11 +69,8 @@ Statyczna wersja biblioteki jneural.
 ./configure --prefix=$RPM_BUILD_ROOT/usr
 %{__make}
 
-( # documentation
-  cd docs
-  texi2dvi -I /usr/share/latex2html/texinputs jneural_doc.tex
-# dvips jneural_doc.dvi -o jneural_doc.ps
-)
+cd docs
+texi2dvi -I /usr/share/latex2html/texinputs jneural_doc.tex
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -87,11 +86,9 @@ install -d $RPM_BUILD_ROOT%{_includedir}
 #install apps/sin    $RPM_BUILD_ROOT%{_bindir}/jn_sin
 
 install libjneural.so $RPM_BUILD_ROOT%{_libdir}/libjneural.so.%{version}
-install libjneural.a  $RPM_BUILD_ROOT%{_libdir}/libjneural.a.%{version}
+install libjneural.a  $RPM_BUILD_ROOT%{_libdir}/libjneural.a
 ln -s libjneural.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libjneural.so.1
-ln -s libjneural.a.%{version}  $RPM_BUILD_ROOT%{_libdir}/libjneural.a.1
 ln -s libjneural.so.1          $RPM_BUILD_ROOT%{_libdir}/libjneural.so
-ln -s libjneural.a.1           $RPM_BUILD_ROOT%{_libdir}/libjneural.a
 
 for i in arch nets utils; do
     install -d $RPM_BUILD_ROOT%{_includedir}/$i
