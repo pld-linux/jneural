@@ -10,6 +10,7 @@ Source0:	http://www.voltar.org/jneural/%{name}-%{version}.tar.gz
 Patch0:		%{name}-make.patch
 Patch1:		%{name}-yacc.patch
 Patch2:		%{name}-c++.patch
+BuildRequires:	autoconf
 BuildRequires:	bison
 BuildRequires:	latex2html
 BuildRequires:	libstdc++-devel
