@@ -7,9 +7,10 @@ License:	GPL v2
 Group:		Libraries
 Source0:	http://www.voltar.org/jneural/jneural-%{version}.tar.gz
 Patch0:		jneural-make.patch
-BuildRequires:	latex2html tetex
-BuildRequires:	texinfo-texi2dvi
+BuildRequires:	latex2html
 BuildRequires:	ncurses-devel
+BuildRequires:	tetex
+BuildRequires:	texinfo-texi2dvi
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
