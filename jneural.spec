@@ -77,10 +77,17 @@ Statyczna wersja biblioteki jneural.
 %build
 %{__autoconf}
 %configure
+
+# make shared lib with PIC
+%{__make} libjneural.so libjneural.a \
+	CC="%{__cxx}" \
+	DFLAGS="%{rpmcflags} -fPIC" \
+	YACC="bison -y"
+
+# and make apps, without unnecessary PIC
 %{__make} \
 	CC="%{__cxx}" \
-	DFLAGS="%{rpmcflags}" \
-	YACC="bison -y"
+	DFLAGS="%{rpmcflags}"
 
 cd docs
 texi2dvi -I %{_datadir}/latex2html/texinputs jneural_doc.tex
