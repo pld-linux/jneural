@@ -117,12 +117,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr (755,root,root) %{_libdir}/*.so
-#%attr (755,root,root) %{_libdir}/*.la
+%doc README PROGRESSLOG docs/jneural_doc.dvi
+%attr(755,root,root) %{_libdir}/*.so
+#%{_libdir}/*.la
 %{_includedir}/arch
 %{_includedir}/nets
 %{_includedir}/utils
-%doc README PROGRESSLOG docs/jneural_doc.dvi
 
 %files static
 %defattr(644,root,root,755)
