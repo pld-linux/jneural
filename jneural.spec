@@ -1,12 +1,12 @@
 Summary:	Jet's Neural library - for making neural net apps
 Summary(pl):	Jet's Neural library - tworzenie aplikacji neuronowych
-Name:		jneural    
+Name:		jneural
 Version:	1.05
 Release:	3
 License:	GPL v2
 Group:		Libraries
-Source0:	http://www.voltar.org/jneural/jneural-%{version}.tar.gz
-Patch0:		jneural-make.patch
+Source0:	http://www.voltar.org/jneural/%{name}-%{version}.tar.gz
+Patch0:		%{name}-make.patch
 BuildRequires:	latex2html
 BuildRequires:	ncurses-devel
 BuildRequires:	tetex
@@ -15,9 +15,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 I wrote this on account of being completely fed up with starting from
-scratch every time I wanted to write a neural app.  I had found some
-libraries that did this, but none of them were any good.  Arguably
-this isn't either... But I like it. ;)  Probably cuz it's mine right?
+scratch every time I wanted to write a neural app. I had found some
+libraries that did this, but none of them were any good. Arguably this
+isn't either... But I like it. ;) Probably cuz it's mine right?
 
 -Jet (jettero@voltar-confed.org)
 
@@ -68,11 +68,11 @@ Statyczna wersja biblioteki jneural.
 %patch0 -p1
 
 %build
-./configure --prefix=$RPM_BUILD_ROOT/usr
+./configure --prefix=$RPM_BUILD_ROOT%{_prefix}
 %{__make}
 
 cd docs
-texi2dvi -I /usr/share/latex2html/texinputs jneural_doc.tex
+texi2dvi -I %{_datadir}/latex2html/texinputs jneural_doc.tex
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -112,6 +112,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/*.so.*
 
 %files apps
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %doc apps/matricies.*
 
