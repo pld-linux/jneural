@@ -6,6 +6,7 @@ Release:	3
 License:	GPL v2
 Group:		Libraries
 Source0:	http://www.voltar.org/jneural/%{name}-%{version}.tar.gz
+# Source0-md5:	79afdc55601a7e5a22b303b566c37525
 Patch0:		%{name}-make.patch
 BuildRequires:	latex2html
 BuildRequires:	ncurses-devel
