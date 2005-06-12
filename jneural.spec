@@ -12,9 +12,12 @@ Patch1:		%{name}-yacc.patch
 Patch2:		%{name}-c++.patch
 BuildRequires:	autoconf
 BuildRequires:	bison
+BuildRequires:	flex
 BuildRequires:	latex2html
 BuildRequires:	libstdc++-devel
 BuildRequires:	ncurses-devel
+BuildRequires:	tetex-latex-ams
+BuildRequires:	tetex-format-latex
 BuildRequires:	tetex-latex-bibtex
 BuildRequires:	texinfo-texi2dvi
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
