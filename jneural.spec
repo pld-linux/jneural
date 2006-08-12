@@ -105,12 +105,12 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_includedir}}
 
 #install apps/grid_w $RPM_BUILD_ROOT%{_bindir}/jn_grid_w
-#install apps/sin    $RPM_BUILD_ROOT%{_bindir}/jn_sin
+#install apps/sin $RPM_BUILD_ROOT%{_bindir}/jn_sin
 
 install libjneural.so $RPM_BUILD_ROOT%{_libdir}/libjneural.so.%{version}
-install libjneural.a  $RPM_BUILD_ROOT%{_libdir}/libjneural.a
+install libjneural.a $RPM_BUILD_ROOT%{_libdir}/libjneural.a
 ln -s libjneural.so.%{version} $RPM_BUILD_ROOT%{_libdir}/libjneural.so.1
-ln -s libjneural.so.1          $RPM_BUILD_ROOT%{_libdir}/libjneural.so
+ln -s libjneural.so.1 $RPM_BUILD_ROOT%{_libdir}/libjneural.so
 
 for i in arch nets utils; do
 	install -d $RPM_BUILD_ROOT%{_includedir}/$i
@@ -124,7 +124,7 @@ done
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post   -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
 %files
