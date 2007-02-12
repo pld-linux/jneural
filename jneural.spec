@@ -1,5 +1,5 @@
 Summary:	Jet's Neural library - for making neural net apps
-Summary(pl):	Jet's Neural library - tworzenie aplikacji neuronowych
+Summary(pl.UTF-8):   Jet's Neural library - tworzenie aplikacji neuronowych
 Name:		jneural
 Version:	1.05
 Release:	5
@@ -30,46 +30,46 @@ isn't either... But I like it. ;) Probably cuz it's mine right?
 
 -Jet (jettero@voltar-confed.org)
 
-%description -l pl
-Ten pakiet powsta≥, poniewaø autor mia≥ juø do∂Ê zaczynania za kaødym
-razem od zera, kiedy chcia≥ napisaÊ aplikacjÍ neuronow±. Znalaz≥ kilka
-bibliotek do tego celu, ale øadna nie by≥a dobra. Prawdopodobnie ta
-teø nie jest, ale przynajmniej autor j± lubi ;)
+%description -l pl.UTF-8
+Ten pakiet powsta≈Ç, poniewa≈º autor mia≈Ç ju≈º do≈õƒá zaczynania za ka≈ºdym
+razem od zera, kiedy chcia≈Ç napisaƒá aplikacjƒô neuronowƒÖ. Znalaz≈Ç kilka
+bibliotek do tego celu, ale ≈ºadna nie by≈Ça dobra. Prawdopodobnie ta
+te≈º nie jest, ale przynajmniej autor jƒÖ lubi ;)
 
 %package apps
 Summary:	Example jneural applications
-Summary(pl):	Przyk≥adowe programy, wykorzystuj±ce jneural
+Summary(pl.UTF-8):   Przyk≈Çadowe programy, wykorzystujƒÖce jneural
 Group:		Applications
 Requires:	%{name} = %{version}-%{release}
 
 %description apps
 Example jneural applications.
 
-%description apps -l pl
-Przyk≥adowe programy, wykorzystuj±ce jneural.
+%description apps -l pl.UTF-8
+Przyk≈Çadowe programy, wykorzystujƒÖce jneural.
 
 %package devel
 Summary:	jneural header files
-Summary(pl):	Pliki nag≥Ûwkowe jneural
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe jneural
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 jneural header files.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe biblioteki jneural.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe biblioteki jneural.
 
 %package static
 Summary:	jneural static library
-Summary(pl):	Statyczna biblioteka jneural
+Summary(pl.UTF-8):   Statyczna biblioteka jneural
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static version of jneural library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna wersja biblioteki jneural.
 
 %prep
