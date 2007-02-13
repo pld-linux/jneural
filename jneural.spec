@@ -1,5 +1,5 @@
 Summary:	Jet's Neural library - for making neural net apps
-Summary(pl.UTF-8):   Jet's Neural library - tworzenie aplikacji neuronowych
+Summary(pl.UTF-8):	Jet's Neural library - tworzenie aplikacji neuronowych
 Name:		jneural
 Version:	1.05
 Release:	5
@@ -38,7 +38,7 @@ też nie jest, ale przynajmniej autor ją lubi ;)
 
 %package apps
 Summary:	Example jneural applications
-Summary(pl.UTF-8):   Przykładowe programy, wykorzystujące jneural
+Summary(pl.UTF-8):	Przykładowe programy, wykorzystujące jneural
 Group:		Applications
 Requires:	%{name} = %{version}-%{release}
 
@@ -50,7 +50,7 @@ Przykładowe programy, wykorzystujące jneural.
 
 %package devel
 Summary:	jneural header files
-Summary(pl.UTF-8):   Pliki nagłówkowe jneural
+Summary(pl.UTF-8):	Pliki nagłówkowe jneural
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -62,7 +62,7 @@ Pliki nagłówkowe biblioteki jneural.
 
 %package static
 Summary:	jneural static library
-Summary(pl.UTF-8):   Statyczna biblioteka jneural
+Summary(pl.UTF-8):	Statyczna biblioteka jneural
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
